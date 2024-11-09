@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="proyecto sobre compostaje y sus distintos usos">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="compostaje, Reciclable, organico">
+  <meta name="author" content="Sebastian Vergara">
+  <title>Bioelectricidad en el Hogar</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="img/icono.png">
+  <script src="https://kit.fontawesome.com/3aabca6445.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="cabecera">
+    <div class="container">
+      <a href="index.html" class="link-logo">
+        <img class="logo" src="img/logo.png" width="138" height="140">
+      </a>
+      <nav class="menu">
+        <ul class="menu">
+          <li class="menu-item"><a href="index.html">Inicio</a></li>
+          <li class="menu-item"><a href="#sobre_el_compostaje">Sobre el compostaje</a></li>
+          <li class="menu-item">
+            <a href="#tipos_de_energia">Tipos de energia</a>
+            <ul class="submenu">
+              <li><a href="biogas.html">Biogas</a></li>
+              <li><a href="biocombustible.html">Biocombustible</a></li>
+              <li><a href="bioelectricidad.html">Bioelectricidad</a></li>
+              <li><a href="hidrogeno.html">Hidrogeno</a></li>
+            </ul>
+          </li>
+          <li class="menu-item"><a href="#contactenos">Contactenos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="banner">
+      <img class="banner-home" src="img/bioeelectricidad1.png" width="1880" height="1245">
+      <div class="container">
+        <div class="bloque-inicio">
+          <h1>Bioelectricidad</h1>
+          <p>La bioelectricidad es la generación de electricidad a partir de fuentes biológicas</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre_el_compostaje" class="seccion">
+      <div class="container">
+        <div class="fila">
+          <div class="columna columna-100">
+            <h1 class="titulo">Bioelectricidad</h1>
+            <p>La bioelectricidad es una forma de generar electricidad mediante procesos biológicos que involucran microorganismos, biomasa, algas, entre otros. Es una alternativa ecológica para generar energía renovable.</p>
+            <p><strong>Fuentes de Bioelectricidad:</strong></p>
+            <ul>
+              <li><strong>Biomasa:</strong> Materiales orgánicos como residuos agrícolas, madera, y residuos de alimentos.</li>
+              <li><strong>Bioaceites:</strong> Aceites vegetales modificados.</li>
+              <li><strong>Algas:</strong> Producción de electricidad a partir de algas.</li>
+            </ul>
+            <p>La bioelectricidad tiene un gran potencial para contribuir a un futuro energético más limpio, sostenible y descentralizado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Cálculos y Gráficos -->
+    <section id="calculo_consumo" class="seccion">
+      <div class="container">
+        <h2>Calcula el consumo y coste de Bioelectricidad</h2>
+        
+        <label for="energia_consumo">Ingresa la cantidad de energía consumida (en kWh):</label>
+        <input type="number" id="energia_consumo" placeholder="Ej: 300">
+        
+        <button id="calcular_btn">Calcular</button>
+        
+        <h3>Resultados:</h3>
+        <p id="resultado_consumo"></p>
+        <p id="resultado_dinero"></p>
+
+        <canvas id="grafico_comparativo" width="400" height="200"></canvas>
+
+        <button id="actualizar_btn">Actualizar</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Precios por kWh en Colombia
+    const precio_kWh_tradicional = 600; // Pesos colombianos por kWh
+    const precio_kWh_bioelectricidad = 400; // Estimado, precio más bajo para bioelectricidad
+
+    // Datos para el gráfico
+    const labels = ["Consumo Tradicional", "Bioelectricidad"];
+    
+    // Función para realizar los cálculos y actualizar los resultados
+    document.getElementById("calcular_btn").addEventListener("click", function() {
+      const energia_consumo = parseFloat(document.getElementById("energia_consumo").value);
+
+      if (!isNaN(energia_consumo)) {
+        // Calcular los costos
+        const costo_tradicional = energia_consumo * precio_kWh_tradicional;
+        const costo_bioelectricidad = energia_consumo * precio_kWh_bioelectricidad;
+        
+        // Calcular ahorro
+        const ahorro = costo_tradicional - costo_bioelectricidad;
+
+        // Mostrar resultados en texto
+        document.getElementById("resultado_consumo").innerHTML = `Consumo de energía: ${energia_consumo} kWh.`;
+        document.getElementById("resultado_dinero").innerHTML = `Costo con energía tradicional: $${costo_tradicional.toLocaleString()} COP.<br>
+                                                                   Costo con bioelectricidad: $${costo_bioelectricidad.toLocaleString()} COP.<br>
+                                                                   Ahorro potencial: $${ahorro.toLocaleString()} COP.`;
+
+        // Actualizar gráfico
+        actualizarGrafico(energia_consumo, costo_tradicional, costo_bioelectricidad);
+      } else {
+        alert("Por favor, ingresa un valor válido para la cantidad de energía consumida.");
+      }
+    });
+
+    // Función para actualizar el gráfico
+    function actualizarGrafico(consumo, costoTradicional, costoBio) {
+      const ctx = document.getElementById('grafico_comparativo').getContext('2d');
+      const grafico = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Costo por kWh (COP)',
+            data: [costoTradicional, costoBio],
+            backgroundColor: ['#ff5733', '#33ff57'],
+            borderColor: ['#ff5733', '#33ff57'],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    }
+
+    // Función para actualizar la página sin salir
+    document.getElementById("actualizar_btn").addEventListener("click", function() {
+      location.reload(); // Recarga la página
+    });
+  </script>
+</body>
+</html>
+
+
+
+		  
+		

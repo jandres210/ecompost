@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="proyecto sobre compostaje y sus distintos usos">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name= "keywords" content="compostaje, Reciclable, organico ">
+		<meta name="autnor" content="Sebastian Vergara">
+		<title> compostaje para el mundo </title>
+
+		<link href="https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+		
+         <link rel="stylesheet" type="normalize/css" href="">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="shortcut icon"  href="img/icono.png">
+		<script src="https://kit.fontawesome.com/3aabca6445.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<header class="cabecera">
+			<div class="container">
+				<a href="index.html" class="link-logo">
+				<img class= "logo" src="img/logo.png" width="138" height="140">
+				</a>
+				<nav class="menu">
+					<ul class="menu">
+						<li class="menu-item"><a href="index.html">Inicio</a></li>
+						<li class="menu-item"><a href="#sobre_el_compostaje">Sobre el compostaje</a></li>
+						<li class="menu-item">
+						  <a href="#tipos_de_energia">Tipos de energia</a>
+						  <ul class="submenu">
+							<li><a href="biogas.html">Biogas</a></li>
+							<li><a href="biocombustible.html">Biocombustible</a></li>
+							<li><a href="bioelectricidad.html">Bioelectricidad</a></li>
+							<li><a href="hidrogeno.html">Hidrogeno</a></li>
+						  </ul>
+						</li>
+						<li class="menu-item"><a href="#contactenos">Contactenos</a></li>
+
+					
+				</nav>
+				<a href="#" class="hamb"><i class="fas fa-bars"></i></a>
+			</div>
+		</header>
+         <main>
+         	<section id="banner">
+         	 <img class="banner-home" src="img/biocombustible.jpg " width="1880" height="1245">
+         	  <div class="container">
+                <div class="bloque-inicio">
+                    <h1>Biocombustible</h1>
+                    <p>
+                        El compostaje y la producción de biocombustible ayudan a reducir la cantidad de residuos que van a los vertederos
+                    </p>
+                </div>
+				<div class="fila">
+					<div class="columna columna-50" class="titulo" >
+                        
+					</div>
+			   </div>
+
+			  </div>
+	
+         	</section>
+             <section id="sobre_el_compostaje"  class="seccion ">
+                <div class="container">
+                  <div class="fila">
+                      <div class="columna columna-100  ">
+                       
+                        
+                        
+                          <h1 class="titulo">Biocombustible</h1>
+                          <p class="texto-izquierda" > es un tipo de combustible que se produce a partir de materias orgánicas (biomasa), como plantas, residuos 
+                            agrícolas, animales o desechos industriales. A diferencia de los combustibles fósiles, que provienen de fuentes no renovables como el 
+                            petróleo, el gas natural y el carbón, los biocombustibles son renovables y pueden ser reutilizados en ciclos naturales.
+                            Existen varios tipos de biocombustibles, los cuales se pueden clasificar según su origen y forma de producción:
+							   <li><strong> Bioetanol (CH₄) :</strong>  Es un alcohol producido principalmente por fermentación de azúcares de cultivos como maíz, caña de azúcar, trigo o remolacha.
+                                <br>Se utiliza comúnmente como aditivo para mezclar con gasolina en motores de vehículos, lo que reduce las emisiones de gases contaminantes.
+                                También puede ser usado en su forma pura en vehículos diseñados para ello (conocido como E85 si tiene un 85% de bioetanol).</li><br>
+								<li><strong>Biodiesel: (CO₂) :</strong> Se produce a partir de aceites vegetales (como el aceite de soja, palma o girasol) o grasas 
+                                    animales mediante un proceso químico llamado transesterificación.Es utilizado como sustituto del diésel tradicional, especialmente en vehículos con motores diésel, 
+                                    y tiene un menor impacto en la emisión de gases de efecto invernadero.</li><br>
+								<li><strong>Biocarburantes de segunda y tercera generación : </strong><br><br>  <strong>Segunda generación:</strong> Se producen a partir de materias primas no comestibles, como residuos agrícolas, 
+                                    desechos forestales y algas. 
+                                    Este tipo de biocombustible es considerado más sostenible, ya que no compite con la producción de alimentos.<br>
+                                    
+                                   <br> <strong>Tercera generación :</strong> Son los biocombustibles obtenidos de algas. Las algas pueden producir grandes cantidades de aceites y otras sustancias que pueden ser convertidas en biocombustibles.
+                                    Esta generación se encuentra en fase de desarrollo, pero promete ser una fuente altamente eficiente y sostenible.</li><br>
+                                    
+                                </p>
+								<p>Los biocombustibles son una opción importante dentro de la transición hacia fuentes de energía más sostenibles, ya que pueden ayudar
+                                     a reducir las emisiones de gases de efecto invernadero y a disminuir la dependencia de los combustibles fósiles. Sin embargo, su 
+                                     producción y uso deben ser gestionados cuidadosamente para evitar problemas como la competencia con la producción de alimentos y 
+                                     los impactos negativos sobre los ecosistemas. Con el avance de tecnologías más eficientes y sostenibles (como los biocombustibles 
+                                     de segunda y tercera generación), se espera que los biocombustibles jueguen un papel cada vez más relevante en la matriz energética mundial.</p>
+                      </div>
+                  </div>
+                </div>   
+          </section>
+
+		  <section id="consumo_biocombustible" class="seccion">
+			<div class="container">
+				<h2 class="titulo">Comparación de Consumo Energético</h2>
+				<p>Ingrese el consumo de energía estimado para su hogar si utilizara biocombustible (en kWh):</p>
+				<input type="number" id="consumoBiocombustible" placeholder="Consumo en kWh">
+				<button onclick="calcularConsumo()">Calcular</button>
+				<button onclick="location.reload()">Actualizar</button>
+				<div id="resultado" style="margin-top: 20px;"></div>
+				
+				<!-- Contenedor para gráficos en disposición vertical -->
+				<div style="display: flex; flex-direction: column; align-items: center;">
+					<canvas id="graficoComparacion" width="400" height="200" style="margin-bottom: 20px;"></canvas>
+					<canvas id="graficoCostos" width="400" height="200"></canvas>
+				</div>
+			</div>
+		</section>
+		
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<script>
+			function calcularConsumo() {
+				const consumoBiocombustible = document.getElementById("consumoBiocombustible").value;
+				
+				// Consumo promedio de un hogar en Colombia (kWh/mes) y costos aproximados
+				const consumoConvencional = 200; // Aproximado
+				const costoConvencional = consumoConvencional * 600; // Costo promedio de electricidad en COP
+				const costoBiocombustible = consumoBiocombustible * 450; // Costo estimado usando biocombustible en COP
+		
+				// Mostrar resultados en pantalla
+				document.getElementById("resultado").innerHTML = `
+					<p>Consumo convencional: ${consumoConvencional} kWh</p>
+					<p>Consumo biocombustible: ${consumoBiocombustible} kWh</p>
+					<p>Costo con electricidad convencional: ${costoConvencional.toLocaleString("es-CO", { style: "currency", currency: "COP" })}</p>
+					<p>Costo con biocombustible: ${costoBiocombustible.toLocaleString("es-CO", { style: "currency", currency: "COP" })}</p>
+				`;
+		
+				// Gráfico de comparación de consumo en kWh (barras)
+				const ctx1 = document.getElementById("graficoComparacion").getContext("2d");
+				new Chart(ctx1, {
+					type: "bar",
+					data: {
+						labels: ["Consumo Convencional", "Consumo Biocombustible"],
+						datasets: [{
+							label: "Consumo en kWh",
+							data: [consumoConvencional, consumoBiocombustible],
+							backgroundColor: ["#FF6384", "#36A2EB"]
+						}]
+					},
+					options: {
+						responsive: true,
+						scales: {
+							y: {
+								beginAtZero: true
+							}
+						}
+					}
+				});
+		
+				// Gráfico de costos en COP (línea)
+				const ctx2 = document.getElementById("graficoCostos").getContext("2d");
+				new Chart(ctx2, {
+					type: "line",
+					data: {
+						labels: ["Costo Convencional", "Costo Biocombustible"],
+						datasets: [{
+							label: "Costo en COP",
+							data: [costoConvencional, costoBiocombustible],
+							borderColor: "#36A2EB",
+							backgroundColor: "#36A2EB",
+							fill: false,
+							tension: 0.4
+						}]
+					},
+					options: {
+						responsive: true,
+						scales: {
+							y: {
+								beginAtZero: true
+							}
+						}
+					}
+				});
+			}
+		</script>
+		
+		

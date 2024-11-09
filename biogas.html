@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="proyecto sobre compostaje y sus distintos usos">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name= "keywords" content="compostaje, Reciclable, organico ">
+		<meta name="autnor" content="Sebastian Vergara">
+		<title> compostaje para el mundo </title>
+
+		<link href="https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+		
+         <link rel="stylesheet" type="normalize/css" href="">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="shortcut icon"  href="img/icono.png">
+		<script src="https://kit.fontawesome.com/3aabca6445.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<header class="cabecera">
+			<div class="container">
+				<a href="index.html" class="link-logo">
+				<img class= "logo" src="img/logo.png" width="138" height="140">
+				</a>
+				<nav class="menu">
+					<ul class="menu">
+						<li class="menu-item"><a href="index.html">Inicio</a></li>
+						<li class="menu-item"><a href="#sobre_el_compostaje">Sobre el compostaje</a></li>
+						<li class="menu-item">
+						  <a href="#tipos_de_energia">Tipos de energia</a>
+						  <ul class="submenu">
+							<li><a href="biogas.html">Biogas</a></li>
+							<li><a href="biocombustible.html">Biocombustible</a></li>
+							<li><a href="bioelectricidad.html">Bioelectricidad</a></li>
+							<li><a href="hidrogeno.html">Hidrogeno</a></li>
+						  </ul>
+						</li>
+						<li class="menu-item"><a href="#contactenos">Contactenos</a></li>
+
+					
+				</nav>
+				<a href="#" class="hamb"><i class="fas fa-bars"></i></a>
+			</div>
+		</header>
+         <main>
+         	<section id="banner">
+         	 <img class="banner-home" src="img/biogas.jpg " width="1880" height="1245">
+         	  <div class="container">
+				<div class="bloque-inicio">
+                    <h1>Biogas</h1>
+                    <p>
+                    Durante el proceso de compostaje, la materia orgánica se descompone y produce biogás 
+                    </p>
+                </div>
+				<div class="fila">
+					<div class="columna columna-50">
+						
+					</div>
+			   </div>
+
+			  </div>
+	
+         	</section>
+             <section id="sobre_el_compostaje"  class="seccion ">
+                <div class="container">
+                  <div class="fila">
+                      <div class="columna columna-100  ">
+                          <h1 class="titulo">Biogás</h1>
+                          <p class="texto-izquierda" > El biogás es una mezcla de gases producida por la descomposición anaeróbica (sin oxígeno) de materia orgánica,  como 
+                             residuos agrícolas, estiércol, restos de comida, aguas residuales, y otros desechos biológicos. Esta descomposición ocurre gracias a la acción 
+                               de microorganismos, que descomponen los materiales orgánicos y liberan una variedad de gases, siendo los principales:
+							   <li><strong> Metano (CH₄) :</strong>  El componente principal del biogás, responsable de su poder calorífico.
+								Dióxido de carbono (CO₂) : Gas inerte que también está presente en el biogás.
+								Otros compuestos: Pueden incluir trazas de sulfuro de hidrógeno (H₂S), amoníaco, entre otros.</li>
+								<li><strong>Dióxido de carbono (CO₂) :</strong> Gas inerte que también está presente en el biogás.</li>
+								<li><strong>Otros compuestos :</strong>  Pueden incluir trazas de sulfuro de hidrógeno (H₂S), amoníaco, entre otros.</li>
+                                </p>
+								<p>El biogás puede ser capturado y utilizado como fuente de energía renovable, por ejemplo, para generar electricidad, 
+									calefacción o como combustible para vehículos. Además, su producción ayuda a reducir las emisiones de gases de efecto invernadero, ya 
+									que evita que el metano se libere directamente a la atmósfera, donde es un potente gas de efecto invernadero.
+									El biogás se genera generalmente en digestores anaeróbicos, que son sistemas cerrados donde se controla el ambiente 
+								   para favorecer la descomposición de la materia orgánica sin la presencia de oxígeno.</p>
+                      </div>
+                  </div>
+          </section>
+
+		  <section id="consumo_energia" class="seccion">
+			<div class="container">
+				<h2>Comparativa de Consumo y Costo de Energía</h2>
+				<p>Ingrese el consumo estimado de energía en kWh si se utilizara biogás como fuente de energía renovable en el hogar.</p>
+				
+				<label for="consumoBiogas">Consumo con Biogás (kWh):</label>
+				<input type="number" id="consumoBiogas" placeholder="Ej: 300" min="0">
+		
+				<button onclick="calcularComparativa()">Calcular</button>
+				<button onclick="actualizarPagina()">Actualizar</button>
+		
+				<div id="resultadoComparativa"></div>
+				<div id="diferenciaEconomica"></div>
+				<canvas id="graficoComparativa" width="400" height="200"></canvas>
+			</div>
+		</section>
+		
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<script>
+			function calcularComparativa() {
+				// Consumo promedio y costos estimados en Colombia
+				const consumoTradicional = 500; // kWh promedio
+				const costoTradicionalKwh = 600; // Costo en COP por kWh (tradicional)
+				const costoBiogasKwh = 400; // Costo en COP por kWh (biogás)
+				
+				const consumoBiogas = parseFloat(document.getElementById("consumoBiogas").value);
+		
+				if (isNaN(consumoBiogas) || consumoBiogas < 0) {
+					document.getElementById("resultadoComparativa").innerText = "Por favor, ingrese un valor válido para el consumo con biogás.";
+					return;
+				}
+		
+				// Cálculo de costos
+				const costoTradicional = consumoTradicional * costoTradicionalKwh;
+				const costoBiogas = consumoBiogas * costoBiogasKwh;
+		
+				// Cálculo de la diferencia en costos
+				const diferenciaEconomica = costoTradicional - costoBiogas;
+		
+				// Mostrar la comparación y diferencia económica
+				let eficiencia = consumoBiogas < consumoTradicional ? "más eficiente" : "menos eficiente";
+				let ahorro = diferenciaEconomica > 0 ? "más económico" : "menos económico";
+		
+				document.getElementById("resultadoComparativa").innerHTML = 
+					`<p>Con el valor ingresado, el consumo de energía con biogás es ${eficiencia} y ${ahorro} en comparación con el consumo tradicional en Colombia.</p>`;
+		
+				document.getElementById("diferenciaEconomica").innerHTML = 
+					`<p>Diferencia en costos: ${Math.abs(diferenciaEconomica).toLocaleString()} COP. ` +
+					`${diferenciaEconomica > 0 ? "Ahorraría" : "Gastaría adicionalmente"} esta cantidad al usar biogás.</p>`;
+		
+				// Generar gráfico comparativo
+				const ctx = document.getElementById("graficoComparativa").getContext("2d");
+				new Chart(ctx, {
+					type: 'bar',
+					data: {
+						labels: ["Consumo Tradicional (kWh)", "Consumo con Biogás (kWh)", "Costo Tradicional (COP)", "Costo con Biogás (COP)"],
+						datasets: [{
+							label: 'Comparativa de Consumo y Costo',
+							data: [consumoTradicional, consumoBiogas, costoTradicional, costoBiogas],
+							backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"]
+						}]
+					},
+					options: {
+						responsive: true,
+						scales: {
+							y: {
+								beginAtZero: true
+							}
+						}
+					}
+				});
+			}
+		
+			function actualizarPagina() {
+				document.getElementById("consumoBiogas").value = "";
+				document.getElementById("resultadoComparativa").innerHTML = "";
+				document.getElementById("diferenciaEconomica").innerHTML = "";
+				document.getElementById("graficoComparativa").remove();
+				
+				// Reinicializar el canvas
+				const canvasContainer = document.querySelector("#consumo_energia .container");
+				const newCanvas = document.createElement("canvas");
+				newCanvas.id = "graficoComparativa";
+				newCanvas.width = 400;
+				newCanvas.height = 200;
+				canvasContainer.appendChild(newCanvas);
+			}
+		</script>
+		
+		
